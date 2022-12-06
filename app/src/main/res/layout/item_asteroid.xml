@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="asteroid"
+            type="com.eslam.asteroidradar.data.model.Asteroid" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:padding="@dimen/padding_sides">
+
+        <TextView
+            android:id="@+id/asteroidNameTextView"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{asteroid.codename}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/asteroidDateTextView"
+            style="@style/SubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{asteroid.closeApproachDate}"
+            app:layout_constraintStart_toStartOf="@id/asteroidNameTextView"
+            app:layout_constraintTop_toBottomOf="@id/asteroidNameTextView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:contentDescription="@{asteroid.closeApproachDate}"
+            android:padding="20dp"
+            app:isHazardous="@{asteroid.potentiallyHazardous}"
+            app:layout_constraintBottom_toBottomOf="@id/asteroidDateTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/asteroidNameTextView" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
